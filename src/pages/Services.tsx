@@ -4,9 +4,11 @@ import { Fuel, Truck, Building, Users, Clock, Shield, ChevronRight, Check } from
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import QuoteModal from "@/components/QuoteModal";
 
 const Services = () => {
   const [activeTab, setActiveTab] = useState("business");
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
   const businessServices = [
     {
@@ -215,7 +217,10 @@ const Services = () => {
 
                         <div className="mt-auto pt-6 border-t border-white/20">
                           <p className="text-accent font-semibold mb-4">{service.pricing}</p>
-                          <Button className="w-full btn-3d gradient-accent text-white">
+                          <Button 
+                            className="w-full btn-3d gradient-accent text-white"
+                            onClick={() => setIsQuoteModalOpen(true)}
+                          >
                             Get Quote
                             <ChevronRight className="w-4 h-4 ml-2" />
                           </Button>
@@ -347,6 +352,7 @@ const Services = () => {
               <Button
                 size="lg"
                 className="btn-3d gradient-accent text-white font-semibold px-8 py-4 text-lg"
+                onClick={() => setIsQuoteModalOpen(true)}
               >
                 Request Custom Quote
               </Button>
@@ -362,6 +368,11 @@ const Services = () => {
           </motion.div>
         </div>
       </section>
+
+      <QuoteModal
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+      />
     </div>
   );
 };

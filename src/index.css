@@ -9,45 +9,45 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Corporate Color Palette */
-    --primary: 215 75% 16%; /* Navy Blue #0A1F44 */
+    /* Corporate Color Palette - Vibrant Theme */
+    --primary: 220 100% 50%; /* Electric Blue #0080FF */
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 215 60% 25%;
+    --primary-glow: 220 80% 65%;
     
-    --accent: 22 95% 55%; /* Industrial Orange #F48024 */
+    --accent: 15 100% 60%; /* Vibrant Orange #FF4D00 */
     --accent-foreground: 0 0% 98%;
-    --accent-glow: 22 85% 65%;
+    --accent-glow: 15 90% 70%;
     
-    --background: 210 20% 8%; /* Dark corporate background */
-    --foreground: 210 15% 95%;
+    --background: 240 20% 12%; /* Rich dark background */
+    --foreground: 240 15% 95%;
     
-    --card: 215 25% 12%;
-    --card-foreground: 210 15% 95%;
-    --card-glow: 215 40% 20%;
+    --card: 240 25% 16%;
+    --card-foreground: 240 15% 95%;
+    --card-glow: 240 40% 25%;
     
-    --secondary: 210 15% 18%;
-    --secondary-foreground: 210 15% 85%;
+    --secondary: 280 60% 45%; /* Purple accent */
+    --secondary-foreground: 280 15% 95%;
     
-    --muted: 210 15% 25%;
-    --muted-foreground: 210 10% 60%;
+    --muted: 240 15% 30%;
+    --muted-foreground: 240 10% 65%;
     
-    --border: 215 30% 20%;
-    --input: 215 25% 15%;
-    --ring: 22 95% 55%;
+    --border: 240 30% 25%;
+    --input: 240 25% 18%;
+    --ring: 15 100% 60%;
     
     /* 3D Effects & Animations */
-    --shadow-depth-1: 0 4px 6px -1px hsl(215 75% 16% / 0.1), 0 2px 4px -1px hsl(215 75% 16% / 0.06);
-    --shadow-depth-2: 0 10px 15px -3px hsl(215 75% 16% / 0.1), 0 4px 6px -2px hsl(215 75% 16% / 0.05);
-    --shadow-depth-3: 0 20px 25px -5px hsl(215 75% 16% / 0.1), 0 10px 10px -5px hsl(215 75% 16% / 0.04);
-    --shadow-glow: 0 0 20px hsl(22 95% 55% / 0.3);
-    --shadow-industrial: 0 25px 50px -12px hsl(215 75% 16% / 0.25);
+    --shadow-depth-1: 0 4px 6px -1px hsl(220 100% 50% / 0.15), 0 2px 4px -1px hsl(220 100% 50% / 0.1);
+    --shadow-depth-2: 0 10px 15px -3px hsl(220 100% 50% / 0.15), 0 4px 6px -2px hsl(220 100% 50% / 0.1);
+    --shadow-depth-3: 0 20px 25px -5px hsl(220 100% 50% / 0.15), 0 10px 10px -5px hsl(220 100% 50% / 0.1);
+    --shadow-glow: 0 0 30px hsl(15 100% 60% / 0.4);
+    --shadow-industrial: 0 25px 50px -12px hsl(220 100% 50% / 0.3);
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(215 75% 16%), hsl(215 60% 25%));
-    --gradient-accent: linear-gradient(135deg, hsl(22 95% 55%), hsl(22 85% 65%));
-    --gradient-hero: linear-gradient(135deg, hsl(215 75% 16% / 0.95), hsl(215 60% 25% / 0.85));
-    --gradient-card: linear-gradient(145deg, hsl(215 25% 12%), hsl(215 30% 15%));
-    --gradient-industrial: linear-gradient(180deg, hsl(210 20% 8%), hsl(215 25% 12%));
+    --gradient-primary: linear-gradient(135deg, hsl(220 100% 50%), hsl(220 80% 65%));
+    --gradient-accent: linear-gradient(135deg, hsl(15 100% 60%), hsl(15 90% 70%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 100% 50% / 0.95), hsl(240 80% 45% / 0.85));
+    --gradient-card: linear-gradient(145deg, hsl(240 25% 16%), hsl(240 30% 20%));
+    --gradient-industrial: linear-gradient(180deg, hsl(240 20% 12%), hsl(240 25% 16%));
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -134,8 +134,8 @@ All colors MUST be HSL.
 }
 
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px hsl(22 95% 55% / 0.3); }
-  50% { box-shadow: 0 0 40px hsl(22 95% 55% / 0.6); }
+  0%, 100% { box-shadow: 0 0 30px hsl(15 100% 60% / 0.4); }
+  50% { box-shadow: 0 0 60px hsl(15 100% 60% / 0.7); }
 }
 
 @keyframes depth-hover {
@@ -166,16 +166,16 @@ All colors MUST be HSL.
   }
   
   ::-webkit-scrollbar-track {
-    background: hsl(215 25% 12%);
+    background: hsl(240 25% 16%);
   }
   
   ::-webkit-scrollbar-thumb {
-    background: hsl(22 95% 55%);
+    background: hsl(15 100% 60%);
     border-radius: 4px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(22 85% 65%);
+    background: hsl(15 90% 70%);
   }
   
   html {
@@ -261,7 +261,7 @@ All colors MUST be HSL.
   
   /* Industrial Border Effect */
   .industrial-border {
-    border: 2px solid hsl(22 95% 55% / 0.3);
-    box-shadow: inset 0 0 20px hsl(22 95% 55% / 0.1);
+    border: 2px solid hsl(15 100% 60% / 0.3);
+    box-shadow: inset 0 0 20px hsl(15 100% 60% / 0.1);
   }
 }

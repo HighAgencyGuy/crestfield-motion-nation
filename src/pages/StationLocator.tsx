@@ -1,12 +1,16 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { MapPin, Search, Phone, Clock, Navigation, Fuel } from "lucide-react";
+import { MapPin, Search, MessageCircle, Clock, Navigation, Fuel, Phone } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import DirectionsModal from "@/components/DirectionsModal";
+import InteractiveMap from "@/components/InteractiveMap";
 
 const StationLocator = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [isDirectionsModalOpen, setIsDirectionsModalOpen] = useState(false);
+  const [selectedStation, setSelectedStation] = useState<typeof stations[0] | null>(null);
 
   const stations = [
     {
@@ -78,6 +82,17 @@ const StationLocator = () => {
   );
 
   const states = [...new Set(stations.map(station => station.state))];
+
+  const handleDirections = (station: typeof stations[0]) => {
+    setSelectedStation(station);
+    setIsDirectionsModalOpen(true);
+  };
+
+  const handleWhatsApp = (phone: string) => {
+    const whatsappNumber = phone.replace(/[^0-9]/g, '');
+    const message = encodeURIComponent("Hello, I'd like to inquire about your fuel station services.");
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+  };
 
   return (
     <div className="overflow-hidden">
@@ -274,6 +289,7 @@ const StationLocator = () => {
                     <Button 
                       size="sm" 
                       className="flex-1 btn-3d gradient-accent text-white"
+                      onClick={() => handleDirections(station)}
                     >
                       Get Directions
                     </Button>
@@ -281,8 +297,10 @@ const StationLocator = () => {
                       size="sm" 
                       variant="outline" 
                       className="border-accent text-accent hover:bg-accent hover:text-white"
+                      onClick={() => handleWhatsApp(station.phone)}
                     >
-                      Call
+                      <MessageCircle className="w-4 h-4 mr-1" />
+                      WhatsApp
                     </Button>
                   </div>
                 </Card>
@@ -304,7 +322,7 @@ const StationLocator = () => {
         </div>
       </section>
 
-      {/* Map Section Placeholder */}
+      {/* Interactive Map Section */}
       <section className="py-20 bg-primary/30">
         <div className="container mx-auto px-4">
           <motion.div
@@ -318,7 +336,7 @@ const StationLocator = () => {
               Interactive Station Map
             </h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
-              Coming soon: Interactive map showing all Crestfield locations with real-time fuel availability
+              Find Crestfield stations near you with our interactive map
             </p>
           </motion.div>
 
@@ -327,28 +345,20 @@ const StationLocator = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
+            className="max-w-6xl mx-auto"
           >
-            <Card className="card-3d p-8 text-center min-h-[400px] flex items-center justify-center">
-              <div>
-                <div className="w-24 h-24 mx-auto mb-6 gradient-accent rounded-full flex items-center justify-center">
-                  <MapPin className="w-12 h-12 text-white" />
-                </div>
-                <h3 className="text-2xl font-heading font-bold text-white mb-4">
-                  Interactive Map Coming Soon
-                </h3>
-                <p className="text-white/70 mb-6">
-                  We're working on an interactive map feature that will help you find stations, 
-                  check fuel availability, and get real-time directions.
-                </p>
-                <Button className="btn-3d gradient-accent text-white">
-                  Notify Me When Ready
-                </Button>
-              </div>
-            </Card>
+            <InteractiveMap 
+              stations={stations} 
+              onStationSelect={handleDirections}
+            />
           </motion.div>
         </div>
       </section>
+      <DirectionsModal
+        isOpen={isDirectionsModalOpen}
+        onClose={() => setIsDirectionsModalOpen(false)}
+        station={selectedStation}
+      />
     </div>
   );
 };

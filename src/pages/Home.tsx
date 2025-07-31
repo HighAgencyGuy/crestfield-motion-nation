@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-petroleum.jpg";
+import QuoteModal from "@/components/QuoteModal";
 
 const Home = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -17,6 +18,7 @@ const Home = () => {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -148,12 +150,10 @@ const Home = () => {
                 size="lg" 
                 variant="outline" 
                 className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg"
-                asChild
+                onClick={() => setIsQuoteModalOpen(true)}
               >
-                <Link to="/contact">
-                  <Phone className="w-5 h-5 mr-2" />
-                  Get Quote
-                </Link>
+                <Phone className="w-5 h-5 mr-2" />
+                Get Quote
               </Button>
             </motion.div>
           </motion.div>
@@ -318,12 +318,10 @@ const Home = () => {
               <Button
                 size="lg"
                 className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-4 text-lg btn-3d"
-                asChild
+                onClick={() => setIsQuoteModalOpen(true)}
               >
-                <Link to="/contact">
-                  <Mail className="w-5 h-5 mr-2" />
-                  Request Quote
-                </Link>
+                <Mail className="w-5 h-5 mr-2" />
+                Request Quote
               </Button>
 
               <Button
@@ -340,6 +338,11 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
+
+      <QuoteModal
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+      />
     </div>
   );
 };
