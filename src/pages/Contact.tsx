@@ -73,7 +73,7 @@ const Contact = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero" style={{backgroundImage: 'url(/src/assets/hero-contact.jpg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <div className="relative z-10 container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 100 }}
@@ -172,7 +172,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="py-20 bg-primary/30">
+      <section id="message-section" className="py-20 bg-primary/30">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
             {/* Form */}

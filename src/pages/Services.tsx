@@ -106,7 +106,7 @@ const Services = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero" style={{backgroundImage: 'url(/src/assets/hero-services.jpg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <div className="relative z-10 container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 100 }}
@@ -361,6 +361,9 @@ const Services = () => {
                 size="lg"
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg"
+                onClick={() => {
+                  window.location.href = '/contact#message-section';
+                }}
               >
                 Schedule Consultation
               </Button>
