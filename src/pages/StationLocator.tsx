@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import DirectionsModal from "@/components/DirectionsModal";
-import InteractiveMap from "@/components/InteractiveMap";
+import GoogleMap from "@/components/GoogleMap";
 
 const StationLocator = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -19,7 +19,7 @@ const StationLocator = () => {
       address: "Plot 45, Oba Akran Avenue, Ikeja, Lagos",
       state: "Lagos",
       hours: "24/7",
-      phone: "+234-801-234-5678",
+      phone: "+2349051600569",
       services: ["PMS", "AGO", "DPK", "Car Wash", "Mini Mart"],
       coordinates: { lat: 6.5952, lng: 3.3441 }
     },
@@ -29,7 +29,7 @@ const StationLocator = () => {
       address: "15 Ahmadu Bello Way, Victoria Island, Lagos",
       state: "Lagos", 
       hours: "5:00 AM - 11:00 PM",
-      phone: "+234-801-234-5679",
+      phone: "+2349051600569",
       services: ["PMS", "AGO", "DPK", "ATM"],
       coordinates: { lat: 6.4281, lng: 3.4219 }
     },
@@ -39,7 +39,7 @@ const StationLocator = () => {
       address: "Km 8, Abuja-Kaduna Expressway, Abuja",
       state: "FCT",
       hours: "24/7",
-      phone: "+234-809-876-5432",
+      phone: "+2349051600569",
       services: ["PMS", "AGO", "DPK", "Truck Bay", "Restaurant"],
       coordinates: { lat: 9.0579, lng: 7.4951 }
     },
@@ -49,7 +49,7 @@ const StationLocator = () => {
       address: "201 Aba Road, Port Harcourt, Rivers",
       state: "Rivers",
       hours: "6:00 AM - 10:00 PM",
-      phone: "+234-803-123-4567",
+      phone: "+2349051600569",
       services: ["PMS", "AGO", "DPK", "Mini Mart"],
       coordinates: { lat: 4.8156, lng: 7.0498 }
     },
@@ -59,7 +59,7 @@ const StationLocator = () => {
       address: "Industrial Area, Bompai Road, Kano",
       state: "Kano",
       hours: "24/7",
-      phone: "+234-805-987-6543",
+      phone: "+2349051600569",
       services: ["PMS", "AGO", "DPK", "Bulk Supply", "Truck Bay"],
       coordinates: { lat: 12.0022, lng: 8.5919 }
     },
@@ -69,7 +69,7 @@ const StationLocator = () => {
       address: "Km 12, Lagos-Ibadan Expressway, Ibadan",
       state: "Oyo",
       hours: "5:30 AM - 11:30 PM",
-      phone: "+234-807-456-7890",
+      phone: "+2349051600569",
       services: ["PMS", "AGO", "DPK", "Car Wash"],
       coordinates: { lat: 7.3775, lng: 3.9470 }
     }
@@ -347,7 +347,7 @@ const StationLocator = () => {
             transition={{ duration: 0.8 }}
             className="max-w-6xl mx-auto"
           >
-            <InteractiveMap 
+            <GoogleMap 
               stations={stations} 
               onStationSelect={handleDirections}
             />

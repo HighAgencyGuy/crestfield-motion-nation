@@ -4,6 +4,7 @@ import { X, Navigation, MapPin, Phone, Clock, Copy, ExternalLink } from "lucide-
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import GoogleMap from "./GoogleMap";
 
 interface DirectionsModalProps {
   isOpen: boolean;
@@ -69,7 +70,7 @@ const DirectionsModal = ({ isOpen, onClose, station }: DirectionsModalProps) => 
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 20 }}
-        className="relative z-10 w-full max-w-md mx-4"
+        className="relative z-10 w-full max-w-4xl mx-4"
       >
         <Card className="card-3d p-6">
           <div className="flex items-center justify-between mb-6">
@@ -156,6 +157,17 @@ const DirectionsModal = ({ isOpen, onClose, station }: DirectionsModalProps) => 
                 <ExternalLink className="w-4 h-4" />
               </Button>
             </div>
+          </div>
+
+          {/* Station Map */}
+          <div className="mt-6">
+            <h4 className="font-medium text-white mb-3">Station Location:</h4>
+            <GoogleMap 
+              center={station.coordinates}
+              stations={[station]}
+              height="300px"
+              showStations={true}
+            />
           </div>
 
           <div className="mt-6 p-4 bg-accent/10 rounded-lg border border-accent/20">

@@ -3,10 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Fuel, MapPin, Users, Info, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import QuoteModal from "./QuoteModal";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -94,7 +96,10 @@ const Navigation = () => {
             transition={{ delay: 0.5 }}
             className="hidden lg:block"
           >
-            <Button className="btn-3d gradient-accent text-white font-semibold px-6">
+            <Button 
+              className="btn-3d gradient-accent text-white font-semibold px-6"
+              onClick={() => setIsQuoteModalOpen(true)}
+            >
               Get Quote
             </Button>
           </motion.div>
@@ -153,7 +158,10 @@ const Navigation = () => {
                 transition={{ delay: 0.4 }}
                 className="mt-4 pt-4 border-t border-white/20"
               >
-                <Button className="w-full btn-3d gradient-accent text-white font-semibold">
+                <Button 
+                  className="w-full btn-3d gradient-accent text-white font-semibold"
+                  onClick={() => setIsQuoteModalOpen(true)}
+                >
                   Get Quote
                 </Button>
               </motion.div>
@@ -161,6 +169,11 @@ const Navigation = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      
+      <QuoteModal
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+      />
     </motion.nav>
   );
 };

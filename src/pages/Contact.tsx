@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import GoogleMap from "@/components/GoogleMap";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+234-801-234-5678", "+234-809-876-5432"],
+      details: ["+2349051600569"],
       description: "Speak directly with our customer service team"
     },
     {
@@ -320,9 +321,9 @@ const Contact = () => {
                     className="w-full btn-3d gradient-accent text-white justify-start"
                     asChild
                   >
-                    <a href="tel:+2348012345678">
+                    <a href="tel:+2349051600569">
                       <Phone className="w-5 h-5 mr-3" />
-                      Emergency Hotline: +234-801-234-5678
+                      Emergency Hotline: +2349051600569
                     </a>
                   </Button>
                   <Button 
@@ -330,7 +331,7 @@ const Contact = () => {
                     className="w-full border-accent text-accent hover:bg-accent hover:text-white justify-start"
                     asChild
                   >
-                    <a href="https://wa.me/2348012345678" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/2349051600569" target="_blank" rel="noopener noreferrer">
                       <MessageSquare className="w-5 h-5 mr-3" />
                       WhatsApp Support
                     </a>
@@ -383,11 +384,12 @@ const Contact = () => {
                     <p className="text-accent font-semibold">Accessible by Public Transport</p>
                   </div>
                 </div>
-                <div className="min-h-[300px] bg-gradient-primary rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-16 h-16 text-accent mx-auto mb-4" />
-                    <p className="text-white/70">Interactive map coming soon</p>
-                  </div>
+                <div className="min-h-[300px] rounded-lg">
+                  <GoogleMap 
+                    center={{ lat: 6.5952, lng: 3.3441 }}
+                    height="300px"
+                    showStations={false}
+                  />
                 </div>
               </div>
             </Card>

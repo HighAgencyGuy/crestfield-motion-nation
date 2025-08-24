@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Fuel, Truck, Building, Users, Clock, Shield, ChevronRight, Check } from "lucide-react";
@@ -163,16 +164,16 @@ const Services = () => {
           </motion.div>
 
           <Tabs value={activeTab} onValueChange={setActiveTab} className="max-w-6xl mx-auto">
-            <TabsList className="grid w-full grid-cols-2 mb-12 bg-primary/50 p-2 rounded-xl">
+            <TabsList className="grid w-full grid-cols-2 mb-12 bg-transparent p-2 rounded-xl border border-white/20">
               <TabsTrigger 
                 value="business" 
-                className="text-lg font-semibold py-4 data-[state=active]:bg-accent data-[state=active]:text-white transition-all duration-300"
+                className="text-lg font-semibold py-4 data-[state=active]:bg-accent data-[state=active]:text-white text-white hover:bg-white/10 transition-all duration-300"
               >
                 Business Solutions
               </TabsTrigger>
               <TabsTrigger 
                 value="consumer" 
-                className="text-lg font-semibold py-4 data-[state=active]:bg-accent data-[state=active]:text-white transition-all duration-300"
+                className="text-lg font-semibold py-4 data-[state=active]:bg-accent data-[state=active]:text-white text-white hover:bg-white/10 transition-all duration-300"
               >
                 Consumer Services
               </TabsTrigger>
@@ -271,10 +272,12 @@ const Services = () => {
 
                         <div className="mt-auto pt-6 border-t border-white/20">
                           <p className="text-accent font-semibold mb-4">{service.pricing}</p>
-                          <Button className="w-full btn-3d gradient-accent text-white">
-                            Order Now
-                            <ChevronRight className="w-4 h-4 ml-2" />
-                          </Button>
+                          <Link to="/contact">
+                            <Button className="w-full btn-3d gradient-accent text-white">
+                              Order Now
+                              <ChevronRight className="w-4 h-4 ml-2" />
+                            </Button>
+                          </Link>
                         </div>
                       </Card>
                     </motion.div>
