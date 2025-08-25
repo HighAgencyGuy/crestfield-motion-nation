@@ -166,7 +166,7 @@ const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
                 <Input
                   value={formData.phone}
                   onChange={(e) => handleInputChange("phone", e.target.value)}
-                  placeholder="+234-xxx-xxx-xxxx"
+                  placeholder="+2349051600569"
                   className="bg-input border-border text-white"
                   required
                 />

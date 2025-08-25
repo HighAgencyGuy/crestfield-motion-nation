@@ -88,6 +88,12 @@ const StationLocator = () => {
     setIsDirectionsModalOpen(true);
   };
 
+  const handleSearch = () => {
+    // The search is already handled by the filteredStations logic
+    // This function can be used for additional search functionality if needed
+    console.log('Searching for:', searchTerm);
+  };
+
   const handleWhatsApp = (phone: string) => {
     const whatsappNumber = phone.replace(/[^0-9]/g, '');
     const message = encodeURIComponent("Hello, I'd like to inquire about your fuel station services.");
@@ -146,8 +152,18 @@ const StationLocator = () => {
                   placeholder="Search by location, state, or station name..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-12 py-4 text-lg bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-accent"
+                  onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+                  className="pl-12 pr-16 py-4 text-lg bg-white/95 backdrop-blur-sm border-white/30 text-gray-800 placeholder:text-gray-600 focus:border-accent focus:bg-white shadow-lg"
                 />
+                <button
+                  onClick={handleSearch}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-accent hover:bg-accent/80 text-white rounded-lg flex items-center justify-center transition-colors shadow-lg"
+                  type="button"
+                  aria-label="Search stations"
+                  title="Search stations"
+                >
+                  <Search className="w-5 h-5" />
+                </button>
               </div>
             </motion.div>
           </motion.div>
@@ -244,7 +260,7 @@ const StationLocator = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="card-3d p-6 h-full">
+                <Card className="card-3d p-6 h-full relative z-10">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="text-xl font-heading font-bold text-white mb-2">
@@ -285,10 +301,10 @@ const StationLocator = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 relative z-10">
                     <Button 
                       size="sm" 
-                      className="flex-1 btn-3d gradient-accent text-white"
+                      className="flex-1 btn-3d gradient-accent text-white relative z-10"
                       onClick={() => handleDirections(station)}
                     >
                       Get Directions
@@ -296,7 +312,7 @@ const StationLocator = () => {
                     <Button 
                       size="sm" 
                       variant="outline" 
-                      className="border-accent text-accent hover:bg-accent hover:text-white"
+                      className="border-accent text-accent hover:bg-accent hover:text-white relative z-10"
                       onClick={() => handleWhatsApp(station.phone)}
                     >
                       <MessageCircle className="w-4 h-4 mr-1" />
@@ -350,6 +366,7 @@ const StationLocator = () => {
             <GoogleMap 
               stations={stations} 
               onStationSelect={handleDirections}
+              showDirections={false}
             />
           </motion.div>
         </div>

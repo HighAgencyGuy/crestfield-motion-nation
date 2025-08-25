@@ -35,7 +35,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Visit Us",
-      details: ["Corporate Head Office", "Plot 15, Industrial Estate, Lagos"],
+      details: ["Corporate Head Office", "Plot 45, Oba Akran Avenue, Ikeja, Lagos, Nigeria"],
       description: "Come see our facilities and meet our team"
     },
     {
@@ -100,7 +100,7 @@ const Contact = () => {
             </motion.h1>
 
             <motion.p
-              className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto"
+              className="text-xl md:text-2xl text-white font-semibold mb-8 max-w-3xl mx-auto drop-shadow-lg"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -375,7 +375,7 @@ const Contact = () => {
                     Corporate Head Office
                   </h3>
                   <div className="space-y-4 text-white/80">
-                    <p>Plot 15, Industrial Estate</p>
+                    <p>Plot 45, Oba Akran Avenue</p>
                     <p>Ikeja, Lagos State</p>
                     <p>Nigeria</p>
                   </div>
@@ -384,12 +384,30 @@ const Contact = () => {
                     <p className="text-accent font-semibold">Accessible by Public Transport</p>
                   </div>
                 </div>
-                <div className="min-h-[300px] rounded-lg">
+                <div className="min-h-[300px] rounded-lg relative">
                   <GoogleMap 
                     center={{ lat: 6.5952, lng: 3.3441 }}
                     height="300px"
                     showStations={false}
+                    showDirections={false}
                   />
+                  <div className="absolute top-4 right-4 z-10">
+                    <Card className="p-2 bg-black/80 backdrop-blur-sm border-accent/30">
+                      <p className="text-white text-xs font-medium">
+                        📍 Corporate Office
+                      </p>
+                    </Card>
+                  </div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                    <div className="w-6 h-6 bg-accent rounded-full border-2 border-white shadow-lg animate-pulse"></div>
+                  </div>
+                  <div className="absolute bottom-4 left-4 z-10">
+                    <Card className="p-2 bg-black/80 backdrop-blur-sm border-accent/30">
+                      <p className="text-white text-xs font-medium">
+                        🏢 Plot 45, Oba Akran Avenue
+                      </p>
+                    </Card>
+                  </div>
                 </div>
               </div>
             </Card>

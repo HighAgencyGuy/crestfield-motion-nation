@@ -44,8 +44,9 @@ const About = () => {
       <section className="relative min-h-screen flex items-center justify-center" style={{backgroundImage: 'url(/src/assets/hero-about.jpg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <motion.div
           style={{ y }}
-          className="absolute inset-0 z-0 bg-gradient-hero"
+          className="absolute inset-0 z-0 bg-gradient-hero opacity-80"
         />
+        <div className="absolute inset-0 z-0 bg-black/40" />
         
         <div className="relative z-10 container mx-auto px-4 text-center">
           <motion.div
