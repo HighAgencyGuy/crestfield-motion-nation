@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import DirectionsModal from "@/components/DirectionsModal";
 import GoogleMap from "@/components/GoogleMap";
+import { heroLocator } from "@/lib/images";
 
 const StationLocator = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -103,7 +104,7 @@ const StationLocator = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero" style={{backgroundImage: 'url(/src/assets/hero-locator.jpg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero" style={{backgroundImage: `url(${heroLocator})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <div className="relative z-10 container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 100 }}

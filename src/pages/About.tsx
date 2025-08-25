@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Shield, Target, Users, Award, Calendar, MapPin } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { heroAbout } from "@/lib/images";
 
 const About = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -41,7 +42,7 @@ const About = () => {
   return (
     <div ref={ref} className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center" style={{backgroundImage: 'url(/src/assets/hero-about.jpg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+      <section className="relative min-h-screen flex items-center justify-center" style={{backgroundImage: `url(${heroAbout})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <motion.div
           style={{ y }}
           className="absolute inset-0 z-0 bg-gradient-hero opacity-80"

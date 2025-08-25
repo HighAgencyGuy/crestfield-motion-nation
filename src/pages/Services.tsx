@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import QuoteModal from "@/components/QuoteModal";
+import { heroServices } from "@/lib/images";
 
 const Services = () => {
   const [activeTab, setActiveTab] = useState("business");
@@ -107,7 +108,7 @@ const Services = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero" style={{backgroundImage: 'url(/src/assets/hero-services.jpg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero" style={{backgroundImage: `url(${heroServices})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <div className="relative z-10 container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 100 }}

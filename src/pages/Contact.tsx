@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import GoogleMap from "@/components/GoogleMap";
+import { heroContact } from "@/lib/images";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -74,7 +75,7 @@ const Contact = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero" style={{backgroundImage: 'url(/src/assets/hero-contact.jpg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero" style={{backgroundImage: `url(${heroContact})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <div className="relative z-10 container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 100 }}
